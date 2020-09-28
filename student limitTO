@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+<body>
+<div ng-app="myApp" ng-controller="arrCtrl">
+<p><input type="text" ng-model="searchBox"></p>
+
+
+<ul>
+<h3> Первые три студента : </h3>
+<li ng-repeat="x in students | limitTo : 3">
+{x.lastname +" "+, x.name +" ", mark: " + x.mark + x.date}</li>
+</ul>
+
+<ul>
+<h3> Список отличников: </h3>
+<li ng-repeat="x in students | limitTo : 3:1">
+{x.lastname +" "+, x.name +" ", mark: " + x.mark + x.date}</li>
+</ul>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('arrCtrl', function($scope){
+    $scope.students = [
+    {"lastname": "Red", "name": "Alice", "mark": "10"};
+    {"lastname": "Karimli", "name": "Farid", "mark": "9"};
+    {"lastname": "Mazilu", "name": "Kriss", "mark": "8"};
+    {"lastname": "Zubov", "name": "Maxim", "mark": "7"};
+    {"lastname": "Kurbanov", "name": "Sergei", "mark": "5"};
+];
+});
+</script>
+</body>
+</html>
